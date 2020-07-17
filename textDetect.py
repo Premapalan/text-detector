@@ -17,7 +17,7 @@ import qdarkstyle
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("Text detector")
+        MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 900)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(10, 10, 101, 41))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(490, 430, 91, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(540, 430, 91, 41))
         self.pushButton_2.setObjectName("pushButton_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(500, 60, 471, 351))
@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         self.textBrowser.setGeometry(QtCore.QRect(10, 200, 461, 371))
         self.textBrowser.setObjectName("textBrowser")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(590, 430, 151, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(640, 430, 151, 41))
         self.pushButton_3.setObjectName("pushButton_3")
         self.textBrowser_2 = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_2.setGeometry(QtCore.QRect(10, 580, 461, 261))
@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
         self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label_2.setObjectName("label_2")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(750, 430, 141, 41))
+        self.pushButton_4.setGeometry(QtCore.QRect(800, 430, 141, 41))
         self.pushButton_4.setObjectName("pushButton_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
