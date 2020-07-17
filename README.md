@@ -36,6 +36,7 @@ python3 textDetect.py
 ![Detection google image Fb status_1](/samples/sample_2.png)
 ![Detection google image ](/samples/sample_3.png)
 ![Detection google image_1](/samples/sample_4.png)
+![Detection google image_2](/samples/sample.gif)
 
 
 ## Current work
