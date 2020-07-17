@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Text Detector"))
         self.pushButton.setText(_translate("MainWindow", "Open Folder"))
         self.pushButton_2.setText(_translate("MainWindow", "Detect Text"))
         self.label.setText(_translate("MainWindow", "Selected image"))
@@ -89,7 +89,7 @@ class Ui_MainWindow(object):
         self.listWidget.clear()
         folder = QFileDialog.getExistingDirectory()
         for filename in sorted(os.listdir(folder)):
-            if not filename.endswith('.jpg' or '.png'): continue
+            if not filename.endswith('.png'): continue
             fullname = os.path.join(folder, filename)
             self.listWidget.addItem(fullname)
 
@@ -150,10 +150,6 @@ class Ui_MainWindow(object):
         bytesPerLine = bytesPerComponent * width;
         cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB, cv_img)
         return QtGui.QImage(cv_img.data, width, height, bytesPerLine, QtGui.QImage.Format_RGB888)
-
-
-    
-
 
 
 

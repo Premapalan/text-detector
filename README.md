@@ -32,8 +32,13 @@
 python3 textDetect.py
 
 ## samples
-
+![Detection google image Fb status](/samples/sample_1.png)
+![Detection google image Fb status_1](/samples/sample_2.png)
+![Detection google image ](/samples/sample_3.png)
+![Detection google image_1](/samples/sample_4.png)
 
 
 ## Current work
- 
+1. Detection of text
+2. Bounding box over words & box coordinates
+3. Bounding box over each characters & box coordinates
