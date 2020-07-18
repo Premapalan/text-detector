@@ -14,11 +14,12 @@ import os
 import cv2
 import pytesseract
 import qdarkstyle
+import nlp_summary
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 900)
+        MainWindow.resize(1010, 900)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -26,7 +27,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(10, 10, 101, 41))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(540, 430, 91, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(490, 430, 91, 41))
         self.pushButton_2.setObjectName("pushButton_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(500, 60, 471, 351))
@@ -39,7 +40,7 @@ class Ui_MainWindow(object):
         self.textBrowser.setGeometry(QtCore.QRect(10, 200, 461, 371))
         self.textBrowser.setObjectName("textBrowser")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(640, 430, 151, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(590, 430, 151, 41))
         self.pushButton_3.setObjectName("pushButton_3")
         self.textBrowser_2 = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_2.setGeometry(QtCore.QRect(10, 580, 461, 261))
@@ -49,11 +50,14 @@ class Ui_MainWindow(object):
         self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label_2.setObjectName("label_2")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(800, 430, 141, 41))
+        self.pushButton_4.setGeometry(QtCore.QRect(750, 430, 141, 41))
         self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_5.setGeometry(QtCore.QRect(900, 430, 91, 41))
+        self.pushButton_5.setObjectName("pushButton_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1000, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1010, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -68,7 +72,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.clicked.connect(self.textExtraction)
         self.pushButton_3.clicked.connect(self.textDetection)
         self.pushButton_4.clicked.connect(self.textDetection_char)
-        
+        self.pushButton_5.clicked.connect(self.summarizing)
 
 
     def retranslateUi(self, MainWindow):
@@ -80,6 +84,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText(_translate("MainWindow", "Detect BBox (words)"))
         self.label_2.setText(_translate("MainWindow", "Detection"))
         self.pushButton_4.setText(_translate("MainWindow", "Detect BBox (Chr)"))
+        self.pushButton_5.setText(_translate("MainWindow", "Summary"))
         
     def openFolder(self):
         print('folder opened')
@@ -89,7 +94,8 @@ class Ui_MainWindow(object):
         self.listWidget.clear()
         folder = QFileDialog.getExistingDirectory()
         for filename in sorted(os.listdir(folder)):
-            if not filename.endswith('.png'): continue
+            ext = ['.png', '.jpg', '.jpeg']
+            if not filename.endswith(tuple(ext)): continue
             fullname = os.path.join(folder, filename)
             self.listWidget.addItem(fullname)
 
@@ -150,6 +156,14 @@ class Ui_MainWindow(object):
         bytesPerLine = bytesPerComponent * width;
         cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB, cv_img)
         return QtGui.QImage(cv_img.data, width, height, bytesPerLine, QtGui.QImage.Format_RGB888)
+
+    def summarizing(self):
+        self.label_2.clear()
+        item = self.listWidget.currentItem()
+        img = cv2.imread(item.text())
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        text = str(pytesseract.image_to_string(img))
+        self.textBrowser_2.setText(nlp_summary.summary_text(text))
 
 
 

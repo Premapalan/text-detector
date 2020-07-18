@@ -23,9 +23,9 @@
     ```
 
     you should get a empty line  if not check that your PYTHONPATH empty is, if not enter in your terminal PYTHONPATH="" and put the same command at the end of your .bashrc
-
-7. pip install -r Requirements.txt
-8. DONE  :blush:
+7. python -m spacy download en_core_web_sm
+8. pip install -r Requirements.txt
+9. DONE  :blush:
 
 ## Usage
 
@@ -39,3 +39,4 @@ python3 textDetect.py
 1. Detection of text
 2. Bounding box over words & box coordinates
 3. Bounding box over each characters & box coordinates
+4. Summarizing the text with NLP
