@@ -40,3 +40,4 @@ python3 textDetect.py
 2. Bounding box over words & box coordinates
 3. Bounding box over each characters & box coordinates
 4. Summarizing the text with NLP
+5. Interested region of text selection with box and detecting text
