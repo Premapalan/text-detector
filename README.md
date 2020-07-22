@@ -32,7 +32,7 @@
 python3 textDetect.py
 
 ## samples
-![Detection google image_2](/samples/sample.gif)
+![Detection google image_2](/samples/sample_1.gif)
 
 
 ## Current work
