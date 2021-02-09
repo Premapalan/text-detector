@@ -1,5 +1,7 @@
 # Text Detector 
 
+## Description
+Aim of this project is to develop a graphical user interface for text detection and text based application. I have used pyqt5 framework for developing a GUI. For the text detection from image, I have used pytesseract module for python. With the help of openCV module, image crop, cropped image visualization and bounding box over the detected word and character has been done. Moreover, Detected the paragraph in the image can be summarized using simple Natural Language Processing (NLP) algorithm. For implementing the NLP algo, I have used spaCy(an open source software library for advanced NLP) is used.
 ## Installation
 
 ### On Ubuntu
